@@ -1,0 +1,10 @@
+sudo: required
+services:
+  - docker
+
+before_install: #build
+  - docker build -t rafzenx/react-app -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true rafzenx/react-app npm run test -- --coverage
+
