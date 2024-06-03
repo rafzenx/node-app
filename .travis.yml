@@ -8,3 +8,16 @@ before_install: #build
 script:
   - docker run -e CI=true rafzenx/react-app npm run test -- --coverage
 
+deploy:
+  provider: elasticbeanstalk
+  region: "eu-west-3"
+  app: "frontend" #name of the beanstalk app
+  env: "Frontend-env"
+  bucket_name: "elasticbeanstalk-eu-west-3-663228067661"
+  bucket_path: "frontend"
+  on:
+  branch: main
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: "$AWS_SECRET_KEY"
+
+
