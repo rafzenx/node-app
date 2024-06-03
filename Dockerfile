@@ -9,4 +9,5 @@ RUN mkdir node_modules/.cache && chmod -R 777 node_modules/.cache
 RUN npm run start
 
 FROM nginx
+EXPOSE 80
 COPY --from=build /app/build/ /usr/share/nginx/html
