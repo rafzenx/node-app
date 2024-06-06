@@ -6,7 +6,7 @@ COPY package.json .
 RUN npm install
 COPY . .
 RUN mkdir node_modules/.cache && chmod -R 777 node_modules/.cache
-RUN npm run start
+RUN npm run build
 
 FROM nginx
 EXPOSE 80
